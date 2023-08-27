@@ -1,0 +1,83 @@
+// 到达stationservice的执行情况
+// elapsed: 9 -- 花费时间
+// spanEvent为之后每个方法嵌套调用的统计
+
+Span {
+  version: 1
+  transactionId {
+    agentId: "s_zi1VFARSC93XOT__x8Fw"
+    agentStartTime: 1644920970148
+    sequence: 2
+  }
+  spanId: -476289485047740245
+  parentSpanId: 5629346946882204585
+  startTime: 1645079119472
+  elapsed: 9
+  apiId: 31
+  serviceType: 1010
+  acceptEvent {
+    rpc: "/api/v1/stationservice/stations/namelist"
+    endPoint: "ts-station-service:12345"
+    remoteAddr: "127.0.0.6"
+    parentInfo {
+      parentApplicationName: "ts-order-other-service"
+      parentApplicationType: 1210
+      acceptorHost: "ts-station-service:12345"
+    }
+  }
+  annotation {
+    key: 46
+    value {
+      intValue: 200
+    }
+  }
+  spanEvent {
+    depth: 1
+    endElapsed: 9
+    serviceType: 1011
+    apiId: 30
+  }
+  spanEvent {
+    sequence: 1
+    depth: 2
+    endElapsed: 8
+    serviceType: 5051
+    apiId: 3
+  }
+  spanEvent {
+    sequence: 2
+    depth: 3
+    startElapsed: 2
+    endElapsed: 6
+    serviceType: 5071
+    apiId: 22
+  }
+  spanEvent {
+    sequence: 3
+    depth: 4
+    endElapsed: 6
+    serviceType: 5071
+    apiId: 13
+  }
+}
+
+applicationServiceType: 1210
+
+SpanBo{version=1, agentId='YTqV_NjfStOUUaZs6F1zhQ', applicationId='ts-station-service', agentStartTime=1644921028184, transactionId=TransactionId{agentId='s_zi1VFARSC93XOT__x8Fw', agentStartTime=1644920970148, transactionSequence=2
+  }, spanId=-476289485047740245, parentSpanId=5629346946882204585, parentApplicationId='ts-order-other-service', parentApplicationServiceType=1210, startTime=1645079119472, elapsed=9, rpc='/api/v1/stationservice/stations/namelist', serviceType=1010, endPoint='ts-station-service: 12345', apiId=31, annotationBoList=[AnnotationBo{key=46, value=200, isAuthorized=true
+    }
+  ], flag=0, errCode=0, spanEventBoList=[
+    {version=0, sequence=0, startElapsed=0, endElapsed=9, serviceType=1011, destinationId=null, endPoint=null, apiId=30, annotationBoList=[], depth=1, nextSpanId=-1, hasException=false, exceptionClass=null, nextAsyncId=0
+    },
+    {version=0, sequence=1, startElapsed=0, endElapsed=8, serviceType=5051, destinationId=null, endPoint=null, apiId=3, annotationBoList=[], depth=2, nextSpanId=-1, hasException=false, exceptionClass=null, nextAsyncId=0
+    },
+    {version=0, sequence=2, startElapsed=2, endElapsed=6, serviceType=5071, destinationId=null, endPoint=null, apiId=22, annotationBoList=[], depth=3, nextSpanId=-1, hasException=false, exceptionClass=null, nextAsyncId=0
+    },
+    {version=0, sequence=3, startElapsed=2, endElapsed=6, serviceType=5071, destinationId=null, endPoint=null, apiId=13, annotationBoList=[], depth=4, nextSpanId=-1, hasException=false, exceptionClass=null, nextAsyncId=0
+    }
+  ], spanChunkBoList=null, collectorAcceptTime=1645079119495, hasException=false, exceptionClass='null', applicationServiceType=1210, acceptorHost='ts-station-service: 12345', remoteAddr='127.0.0.6', loggingTransactionInfo=0
+}
+
+Header{agentId='YTqV_NjfStOUUaZs6F1zhQ', applicationName='ts-station-service', agentStartTime=1644921028184, socketId=-1, supportCommandCodeList=null, properties={}
+}
+

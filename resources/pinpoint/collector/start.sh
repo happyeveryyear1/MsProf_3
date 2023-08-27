@@ -1,0 +1,2 @@
+
+nohup java -Dpinpoint.zookeeper.address=localhost -DMsD.span.url=http://39.104.62.233:8347/collect/span -DMsD.spanChunk.url=http://39.104.62.233:8347/collect/spanChunk -jar pinpoint-collector-boot-2.2.2.jar >nohup.out 2>&1 &

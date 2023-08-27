@@ -1,0 +1,63 @@
+from wsgiref.headers import Headers
+from click import argument
+from locust import HttpUser, TaskSet, task,  events
+import requests
+import json
+
+
+# 请求列表
+test_list = ['{"path": "/","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "GET"}', 
+'{ "path": "home/pcweb/data/mancardwater?id=2&offset=1&sessionId=16698043368776&crids=&pos=3&newsNum=3&needAd=1&refresh_state=-1&indextype=manht&_req_seqid=0x96bc714e000624a1&asyn=1&t=1669804337540&sid=","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{ "path": "s?ie=utf-8&newi=1&mod=1&isid=ba8315e300051708&wd=56u62&rsv_spt=1&rsv_iqid=0xaa9ab79600014aef&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_t=23d8nORkuHL3Ome7J8E%2BqniBHADaE%2Bgm9jyk8e2t75kiUcglQjBTVExGtkuneQH47i%2Ft&oq=56u62&rsv_pq=ba8315e300051708&prefixsug=56u62&rsp=0&bs=56u62&rsv_sid=&_ss=1&clist=2389b05bf638f767%092389b05bf638f767&hsug=&f4s=1&csor=5&_cr1=33871","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{ "path": "s?ie=utf-8&newi=1&mod=1&isid=8ee1d30800000e92&wd=kengje&rsv_spt=1&rsv_iqid=0xaa9ab79600014aef&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_t=3735WfM92qRDDpV6%2FUXllF6kgWzXzaPDSAv4qZyc9wqfYwWbdBQzQG8K8WQCNDkyOMPF&oq=kengje&rsv_pq=8ee1d30800000e92&bs=kengje&rsv_sid=&_ss=1&clist=3480057582eec442%092389b05bf638f767%092389b05bf638f767%092389b05bf638f767&hsug=&f4s=1&csor=6&_cr1=35047","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{ "path": "s?ie=utf-8&newi=1&mod=1&isid=a919cee90005c42f&wd=nekung&rsv_spt=1&rsv_iqid=0xaa9ab79600014aef&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_t=bf51us9AWPzlkriU2zWvU9XT7%2F0qmmSPzME6z883tNTC7pn8YK1amATaM8m9Q%2Ffh4MtB&oq=nekung&rsv_pq=a919cee90005c42f&prefixsug=nekung&rsp=0&bs=nekung&rsv_sid=&_ss=1&clist=348c327e88e849a7%093480057582eec442%093480057582eec442%092389b05bf638f767&hsug=&f4s=1&csor=6&_cr1=37544","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{ "path": "s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=erghthet&rsv_spt=1&oq=12%2526lt%253B&rsv_pq=9832637a00038697&rsv_t=13e6%2BF%2Finy%2BLeLGWs0bayMlx%2Bum5MwvKWwiwy6lThPAo0fORtXoch1V0tdImwsdsoycr&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_sug3=8&rsv_sug1=2&rsv_sug7=100&inputT=1570&rsv_sug4=1570","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{ "path": "s?ie=utf-8&mod=1&isid=cc701038000425ec&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=wegerhth&rsv_spt=1&oq=wegerhth&rsv_pq=cc701038000425ec&rsv_t=209ej0wigU10WneFsk9GORGMaPYpmVVO1Gobk6j7CELnUEqxCzyVEqPJJZD65vD65Mt0&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&prefixsug=wegerhth&rsp=4&bs=wegerhth&rsv_sid=undefined&_ss=1&clist=6c9f4cd452df3050%096c9f4cd452df3050&hsug=&f4s=1&csor=8&_cr1=33310","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{ "path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=bfdbreehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=34Tbaiduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baid34Tuhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=ba34Tiduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang34TG=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baid34T43uhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&34Trsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baiduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=bai4Tduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn34T=baiduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}',
+'{"path": "s?ie=utf-8&mod=1&isid=c653410a000139e1&ie=utf-8&f=8&rsv_bp=34T1&rsv_idx=2&tn=baiduhome_pg&wd=bfdbresdsehbr&rsv_spt=1&oq=bfdbreehbr&rsv_pq=c653410a000139e1&rsv_t=b074SUMkhDNmEpfOEfwxH8CG80nMQhM8OTJ4bDumvXOazutxgS8a68m%2B%2FYkFXtxbWNnq&rqlang=cn&r34Tsv_enter=0&rsv_dl=tb&rsv_btype=t&bs=bfdbreehbr&rsv_sid=undefined&_ss=1&clist=85a1c945bd8b1eab&hsug=&f4s=1&csor=10&_cr1=30588","argument": {"accountId":"d4lzzm6errranb4ffb1xzkhpu8zutdb","contactsId":"zfvcqdvdk0o-rxdrvuceknnj-bxpbsn9tdge","tripId":"bb3j5","seatType":"2","date":"2006-06-20","from":"Shang Hai","to":"pSfq lhntu","assurance":12,"foodType":"","foodName":"Bone Soup","foodPrice":"","stationName":"","storeName":""},"method": "POST"}']
+
+
+
+
+
+
+class WebsiteUser(HttpUser):
+    @events.test_start.add_listener
+    def on_test_start(environment, **kwargs):
+        f = None
+        # try:
+        f = open('D:/MicrosvcDiagnose/microsvcDiagnoser/testsets/testset-1-3.test')
+        test_set = f.read()
+        test_lists = test_set.split("========\n")
+        test_list = test_lists[1].split('\n')
+        return test_list[0:-1]
+        
+
+    @task
+    def about(self):
+        for test in test_list:
+            # print(test)
+            test_json = json.loads(test)
+            path = test_json['path']
+            argument = test_json['argument']
+            method = test_json['method']
+            if method == 'POST':
+                self.client.post(path, json=argument)
+            else:
+                self.client.get(path)
+
+        # pass
+        
+    
+    host = "https://www.baidu.com/"
+    min_wait = 1000
+    max_wait = 5000
+

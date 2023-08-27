@@ -1,0 +1,389 @@
+spanChunk{
+  version: 1
+  transactionId {
+    agentId: "ZRFGHI14TW2-pHv1NZlQlg"
+    agentStartTime: 1644921045829
+    sequence: 1
+  }
+  spanId: 4774709147179498375
+  endPoint: "ts-travel-service:12346"
+  spanEvent {
+    sequence: 4
+    depth: 5
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -8626593486174207598
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 5
+    startElapsed: 20
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 276939873012081806
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 6
+    startElapsed: 41
+    endElapsed: 2
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-route-service:11178/api/v1/routeservice/routes/92708982-77af-4318-be25-57ccb0ff69ad"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -1282495285284346301
+        destinationId: "ts-route-service:11178"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 7
+    startElapsed: 10
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 5727369963241879080
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 8
+    startElapsed: 108
+    endElapsed: 4
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-order-service:12031/api/v1/orderservice/order/Thu%20Feb%2017%2008:00:00%20CST%202022/G1234"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 6311314176858636020
+        destinationId: "ts-order-service:12031"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 9
+    startElapsed: 15
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -8481315721629093774
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 10
+    startElapsed: 41
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -3631188690254706869
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 11
+    startElapsed: 23
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-seat-service:18898/api/v1/seatservice/seats/left_tickets"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -3712893567627748191
+        destinationId: "ts-seat-service:18898"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 12
+    startElapsed: 70
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 768214227641486017
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 13
+    startElapsed: 17
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -8057573113994919951
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 14
+    startElapsed: 25
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-seat-service:18898/api/v1/seatservice/seats/left_tickets"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -3183884900980872672
+        destinationId: "ts-seat-service:18898"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 15
+    startElapsed: 62
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-train-service:14567/api/v1/trainservice/trains/GaoTieOne"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 6703240539224635427
+        destinationId: "ts-train-service:14567"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 16
+    startElapsed: 8
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-route-service:11178/api/v1/routeservice/routes/aefcef3f-3f42-46e8-afd7-6cb2a928bd3d"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 4902525810433762174
+        destinationId: "ts-route-service:11178"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 17
+    startElapsed: 10
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -4780764844969499427
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 18
+    startElapsed: 62
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-order-service:12031/api/v1/orderservice/order/Thu%20Feb%2017%2008:00:00%20CST%202022/G1235"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 8628425851264999484
+        destinationId: "ts-order-service:12031"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 19
+    startElapsed: 7
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -5113528896529622590
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 20
+    startElapsed: 15
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -1358108190333791907
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 21
+    startElapsed: 13
+    endElapsed: 1
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-seat-service:18898/api/v1/seatservice/seats/left_tickets"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -6862990365111057262
+        destinationId: "ts-seat-service:18898"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 22
+    startElapsed: 52
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: -3709155598572404895
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+  spanEvent {
+    sequence: 23
+    startElapsed: 16
+    serviceType: 9055
+    annotation {
+      key: 40
+      value {
+        stringValue: "http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai"
+              }
+          }
+    apiId: 43
+    nextEvent {
+      messageEvent {
+        nextSpanId: 5186917878261718462
+        destinationId: "ts-ticketinfo-service:15681"
+              }
+          }
+      }
+      
+  applicationServiceType: 1210
+  keyTime: 1645081872028
+  }
+
+SpanChunkBo{version=1, agentId='gkU_C2tiQ62DV3GKT5ZbGw', applicationId='ts-travel-service', agentStartTime=1644921041471, transactionId=TransactionId{agentId='ZRFGHI14TW2-pHv1NZlQlg', agentStartTime=1644921045829, transactionSequence=1
+    }, spanId=4774709147179498375, endPoint='ts-travel-service: 12346', serviceType=0, applicationServiceType=1210, spanEventBoList=[
+        {version=0, sequence=4, startElapsed=0, endElapsed=1, serviceType=9055, destinationId=ts-ticketinfo-service: 15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http: //ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing, isAuthorized=true}], depth=5, nextSpanId=-8626593486174207598, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=5, startElapsed=20, endElapsed=0, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai, isAuthorized=true}], depth=5, nextSpanId=276939873012081806, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=6, startElapsed=61, endElapsed=2, serviceType=9055, destinationId=ts-route-service:11178, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-route-service:11178/api/v1/routeservice/routes/92708982-77af-4318-be25-57ccb0ff69ad, isAuthorized=true}], depth=5, nextSpanId=-1282495285284346301, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=7, startElapsed=71, endElapsed=1, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo, isAuthorized=true}], depth=5, nextSpanId=5727369963241879080, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=8, startElapsed=179, endElapsed=4, serviceType=9055, destinationId=ts-order-service:12031, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-order-service:12031/api/v1/orderservice/order/Thu%20Feb%2017%2008:00:00%20CST%202022/G1234, isAuthorized=true}], depth=5, nextSpanId=6311314176858636020, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=9, startElapsed=194, endElapsed=0, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing, isAuthorized=true}], depth=5, nextSpanId=-8481315721629093774, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=10, startElapsed=235, endElapsed=0, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai, isAuthorized=true}], depth=5, nextSpanId=-3631188690254706869, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=11, startElapsed=258, endElapsed=1, serviceType=9055, destinationId=ts-seat-service:18898, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-seat-service:18898/api/v1/seatservice/seats/left_tickets, isAuthorized=true}], depth=5, nextSpanId=-3712893567627748191, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=12, startElapsed=328, endElapsed=0, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing, isAuthorized=true}], depth=5, nextSpanId=768214227641486017, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=13, startElapsed=345, endElapsed=1, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai, isAuthorized=true}], depth=5, nextSpanId=-8057573113994919951, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=14, startElapsed=370, endElapsed=1, serviceType=9055, destinationId=ts-seat-service:18898, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-seat-service:18898/api/v1/seatservice/seats/left_tickets, isAuthorized=true}], depth=5, nextSpanId=-3183884900980872672, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=15, startElapsed=432, endElapsed=0, serviceType=9055, destinationId=ts-train-service:14567, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-train-service:14567/api/v1/trainservice/trains/GaoTieOne, isAuthorized=true}], depth=5, nextSpanId=6703240539224635427, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=16, startElapsed=440, endElapsed=0, serviceType=9055, destinationId=ts-route-service:11178, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-route-service:11178/api/v1/routeservice/routes/aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, isAuthorized=true}], depth=5, nextSpanId=4902525810433762174, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=17, startElapsed=450, endElapsed=1, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo, isAuthorized=true}], depth=5, nextSpanId=-4780764844969499427, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=18, startElapsed=512, endElapsed=1, serviceType=9055, destinationId=ts-order-service:12031, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-order-service:12031/api/v1/orderservice/order/Thu%20Feb%2017%2008:00:00%20CST%202022/G1235, isAuthorized=true}], depth=5, nextSpanId=8628425851264999484, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=19, startElapsed=519, endElapsed=1, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing, isAuthorized=true}], depth=5, nextSpanId=-5113528896529622590, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=20, startElapsed=534, endElapsed=1, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai, isAuthorized=true}], depth=5, nextSpanId=-1358108190333791907, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=21, startElapsed=547, endElapsed=1, serviceType=9055, destinationId=ts-seat-service:18898, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-seat-service:18898/api/v1/seatservice/seats/left_tickets, isAuthorized=true}], depth=5, nextSpanId=-6862990365111057262, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=22, startElapsed=599, endElapsed=0, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Nan%20Jing, isAuthorized=true}], depth=5, nextSpanId=-3709155598572404895, hasException=false, exceptionClass=null, nextAsyncId=0}, {version=0, sequence=23, startElapsed=615, endElapsed=0, serviceType=9055, destinationId=ts-ticketinfo-service:15681, endPoint=null, apiId=43, annotationBoList=[AnnotationBo{key=40, value=http://ts-ticketinfo-service:15681/api/v1/ticketinfoservice/ticketinfo/Shang%20Hai, isAuthorized=true}], depth=5, nextSpanId=5186917878261718462, hasException=false, exceptionClass=null, nextAsyncId=0}], collectorAcceptTime=1645081872648, localAsyncId=null, keyTIme=1645081872028}

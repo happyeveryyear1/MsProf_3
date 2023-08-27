@@ -1,0 +1,1 @@
+nohup java -jar flash-api.jar 2>&1 &

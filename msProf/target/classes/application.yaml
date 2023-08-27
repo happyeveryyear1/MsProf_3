@@ -1,0 +1,17 @@
+server:
+  port: 8347
+  maxHttpHeaderSize: 102400
+
+logging:
+  level:
+    root: info
+
+common-args:
+  # 测试套件地址
+  testBaseDir: C:/msProf/testsets/
+  # locust脚本地址
+  locustExecutor: C:/msProf/app/locustExec.py
+  # har文件地址
+  harDir: C:/msProf/hars
+  # API文件
+  APIFile: C:/msProf/API.json

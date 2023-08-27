@@ -1,0 +1,1 @@
+nohup java -Xmx200m -javaagent:/pinpoint/pinpoint-agent-2.2.2/pinpoint-bootstrap-2.2.2.jar -Dpinpoint.agentId=ts-admin-order-1.0 -Dpinpoint.applicationName=ts-admin-order -Dprofiler.collector.ip=39.104.62.233 -Dprofiler.transport.grpc.collector.ip=39.104.62.233 -Dprofiler.sampling.rate=1 -jar /app/ts-admin-order-service-1.0.jar > /app/log/nohup.out 2>&1

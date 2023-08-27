@@ -1,0 +1,1 @@
+nohup java -jar msProf-1.0.jar 2>&1 &

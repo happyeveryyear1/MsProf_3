@@ -1,0 +1,23 @@
+========
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/travel2service/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/travel2service/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-26"},"argInUrl": "false"}
+{"path": "/api/v1/travel2service/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-26"},"argInUrl": "false"}
+{"path": "/api/v1/assuranceservice/assurances/types","method": "GET","argument": {},"argInUrl": "false"}
+{"path": "/api/v1/travelplanservice/travelPlan/minStation","method": "POST","argument": {"startingPlace":"Nan Jing","endPlace":"Shang Hai","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/travelplanservice/travelPlan/cheapest","method": "POST","argument": {"startingPlace":"Nan Jing","endPlace":"Shang Hai","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/travelplanservice/travelPlan/cheapest","method": "POST","argument": {"startingPlace":"Nan Jing","endPlace":"Shang Hai","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/travelplanservice/travelPlan/cheapest","method": "POST","argument": {"startingPlace":"Nan Jing","endPlace":"Bei Jing","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/assuranceservice/assurances/types","method": "GET","argument": {},"argInUrl": "false"}
+========
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/travel2service/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-25"},"argInUrl": "false"}
+{"path": "/api/v1/travelservice/trips/left","method": "POST","argument": {"startingPlace":"Shang Hai","endPlace":"Su Zhou","departureTime":"2023-03-27"},"argInUrl": "false"}
+{"path": "/api/v1/assuranceservice/assurances/types","method": "GET","argument": {},"argInUrl": "false"}
+{"path": "/api/v1/travelplanservice/travelPlan/cheapest","method": "POST","argument": {"startingPlace":"Nan Jing","endPlace":"Shang Hai","departureTime":"2023-03-23"},"argInUrl": "false"}
+{"path": "/api/v1/assuranceservice/assurances/types","method": "GET","argument": {},"argInUrl": "false"}

@@ -1,0 +1,5 @@
+**/.DS_Store
+**/yarn.lock
+.vscode
+web-flash/flash-vue-admin/node_modules/*
+web-flash/nginx-1.24.0

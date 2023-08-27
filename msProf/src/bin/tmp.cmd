@@ -1,0 +1,2 @@
+locust -f D:\MicrosvcDiagnose\microsvcDiagnoser\src\main\java\com\tcse\microsvcdiagnoser\exector\locustExec2.py --headless -t=5s
+locust -f D:\MicrosvcDiagnose\microsvcDiagnoser\src\main\java\com\tcse\microsvcdiagnoser\exector\locustExec.py --headless -t 10s --testsets-path=D:\MicrosvcDiagnose\microsvcDiagnoser\testsets\ --testset-name='testset-0-1.test' --test-idx=1 --html=locust.html

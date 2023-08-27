@@ -1,0 +1,52 @@
+HELP.md
+# target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+logs/
+log/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+
+### Test Sets ###
+/testsets/
+
+### Locust report ###
+/src/bin/*.html
+/src/bin/*.csv
+/src/bin/*.out
+/src/bin/__pycache__/
+
+### Span Data ###
+span.json
+spanChunk.json
+
+### log ###
+log.txt
