@@ -1,47 +1,34 @@
 # msProf
 
 ### Overview
+
 The microservice application performance problem analysis tool supports the discovery of application performance problems during the testing phase, locates performance bottlenecks, and provides visual display of analysis results and other functions.
-
-- #### Interface execution information
-
-
-You can view the specific information of the interface. Contains the merged flame graph of critical paths, request time consumption-proportion distribution, request time consumption-time distribution, and the structure of all critical paths under this interface.
-
-![](C:\Users\侯钰坤\Desktop\msProf.assets\接口执行信息.png)
-
-![](C:\Users\侯钰坤\Desktop\msProf.assets\请求结构列表.png)
-
-
-
+- #### **Interface execution information**
+After the performance analysis is executed, you can view the specific information of the interface. Contains the merged flame graph of critical paths, request time consumption-proportion distribution, request time consumption-time distribution, and the structure of all critical paths under the interface.
+![输入图片说明](resources/static/Interface%20execution%20information.png)
+![输入图片说明](resources/static/Request%20structure%20list.png)
 - #### **Root cause list**
 
 When you click the view button of the analysis result, the analyzed performance anomalies and bottleneck root causes will be displayed.
 
-![](C:\Users\侯钰坤\Desktop\msProf.assets\根因列表.png)
+![输入图片说明](resources/static/Root%20cause%20list.png)
 
-There are three types of bottleneck root causes,which are structural root causes,local compute time root causes,and blocking root causes.
+There are three types of bottleneck root causes,which are structural root causes,local compute time root causes,and request queue root cause.
 
 - ##### **Request struct root cause**
 
 The root cause location will display the exception type, number of occurrences, proportion of abnormal structure requests, average time consumption of abnormal structure, average time consumption of normal structure, and the root cause call that caused the exception, and highlight the call in the call graph.
 
-![](C:\Users\侯钰坤\Desktop\msProf.assets\请求结构根因.png)
+![输入图片说明](resources/static/Request%20struct%20root%20cause.png)
 
 - ##### Local compute time root causes
 
-
 The root cause location will display the exception type,the number of exception occurrences,the proportion of abnormal structure requests,the average time consumption of abnormal structure,the average time consumption of normal structure,the abnormal root cause call,the abnormal local computing time and the normal local computing time.
-
-![](C:\Users\侯钰坤\Desktop\msProf.assets\本地计算时间根因.png)
-
+![输入图片说明](resources/static/Local%20compute%20time%20root%20causes.png)
 - ##### **Request queue root cause**
 
-
 The root cause location will display the exception type, the proportion of abnormal structure requests, the average time consumption of abnormal structure, the average time consumption of normal structure, blocked calls, the total time of blocked calls, and abnormal calls.The pie chart shows the sources of congestion and their proportions.
-
-![](C:\Users\侯钰坤\Desktop\msProf.assets\Request queue root cause.png)
-
+![输入图片说明](resources/static/Request%20queue%20root%20cause.png)
 ### The environment required for installation
 
 #### 	Basic environment
@@ -198,7 +185,7 @@ hbase shell hbase-create.hbase
 
 3.Pinpoint-collector
 
-​	1)Upload `/resource/pinpoint-collector-boot-2.2.0.jar` to the server.
+​	1)Upload `/resource/pinpoint/collector/pinpoint-collector-boot-2.2.0.jar` to the server.
 
 ​	2)Start the application using the deployment script `start.sh`.
 
@@ -211,7 +198,7 @@ nohup java
 
 4.Pinpoint-web
 
-​	1)Upload `/resource/pinpoint-web-boot-2.2.0.jar` to the server.
+​	1)Upload `/resource/pinpoint/web/pinpoint-web-boot-2.2.2.tar` to the server and decompress it.
 
 ​	2)Start the application using the deployment script `start.sh`.
 
@@ -221,7 +208,7 @@ nohup java -jar -Dpinpoint.zookeeper.address=localhost pinpoint-web-boot-2.2.2.j
 
 5.Pinpoint-agent
 
-​	1)Upload `/resource/pinpoint-agent-2.2.0.tar.gz` to the server and decompress it.
+​	1)Upload `/resource/pinpoint/agent/pinpoint-agent-2.2.0.tar.gz` to the server and decompress it.
 
 ​	2)Start the application using the deployment script `start.sh`.
 
@@ -239,7 +226,7 @@ java -javaagent:pinpoint-bootstrap-2.2.2.jar
 
 1.msProf
 
-​	1)Upload `/resource/msProf-1.0.jar` to the server.
+​	1)Upload `/resource/msProf/msProf-1.0.jar` to the server.
 
 ​	2)Configure`/msProf/src/main/resources/application.yaml`, set test suite address, locust script address, har file address.
 
@@ -261,15 +248,15 @@ nohup java -jar msProf-1.0.jar 2>&1 &
 
 2.webflash
 
-​	1)Upload `/resource/flash-api.jar` to the server.
+​	1)Upload `/resource/webflash/backend/flash-api.jar` to the server.
 
-​	2)Configure `/resources/application.properties`.
+​	2)Configure `/resources/webflash/backend/application.properties`.
 
 ```
 SVCDIAGNOSER_URL=http://127.0.0.1:8347
 ```
 
-​	3)Configure `/resources/application-dev.properties`.
+​	3)Configure `/resources/webflash/backend/application-dev.properties`.
 
 ```
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/webflash?useSSL=false&useUnicode=true&characterEncoding=UTF8&
@@ -283,7 +270,7 @@ nohup java -jar flash-api.jar 2>&1 &
 
 3.MySQL8.0
 
-​	1)Upload `/resource/webflash-mysql-8.0.tar` to the server and decompress it.
+​	1)Upload `/resource/webflash/mysql/webflash-mysql-8.0.tar` to the server and decompress it.
 
 ​	2)Start and mount the directory with docker
 
@@ -299,7 +286,7 @@ docker run --name webflash-mysql-8.0 -e MYSQL_ROOT_PASSWORD=root -v /mysql/:/var
 
 ​	[https://github.com/FudanSELab/train-ticket/tree/master/deployment/kubernetes-manifests/k8s-with-istio](https://github.com/FudanSELab/train-ticket/tree/master/deployment/kubernetes-manifests/k8s-with-istio)
 
-​	1)Copy `/resources/pinpoint-agent-2.2.2.tar.gz` to each service under the `/train-ticket-master/` directory.
+​	1)Copy `/resource/pinpoint/agent/pinpoint-agent-2.2.0.tar.gz` to each service under the `/train-ticket-master/` directory.
 
 ​	2)Modify the start.sh in each service of Trainticket.
 
