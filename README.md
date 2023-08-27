@@ -199,6 +199,7 @@ nohup java
 4.Pinpoint-web
 
 ​	1)Upload `/resource/pinpoint/web/pinpoint-web-boot-2.2.2.tar` to the server and decompress it.
+
 ​	2)Start the application using the deployment script `start.sh`.
 
 ```
