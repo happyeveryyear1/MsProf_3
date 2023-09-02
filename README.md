@@ -300,9 +300,8 @@ kubectl apply -f /root/train-ticket-2/k8s/ts-deployment-part3.yml
 ### **The functionality of msProf**
 
 - #### **Aggregate the execution results of multiple user requests**
-
-
-![](/resources/static/Interface execution information.png)
+  
+![image](https://github.com/happyeveryyear1/msProf/blob/master/resources/static/Interface%20execution%20information.png)
 
 - #### **Root cause Analysis**
 msProf supports structure analysis, execution time analysis and traffic anomaly analysis.
