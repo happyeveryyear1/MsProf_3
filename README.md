@@ -306,7 +306,7 @@ kubectl apply -f /root/train-ticket-2/k8s/ts-deployment-part3.yml
 - #### **Root cause Analysis**
 msProf supports structure analysis, execution time analysis and traffic anomaly analysis.
 - ##### **Structure analysis**
-
+![image](https://github.com/happyeveryyear1/msProf/blob/master/resources/static/Structure%20analysis.png)
 - ##### execution time analysis
 
 - ##### traffic anomaly analysis
