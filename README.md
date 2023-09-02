@@ -302,10 +302,10 @@ kubectl apply -f /root/train-ticket-2/k8s/ts-deployment-part3.yml
 - #### **Aggregate the execution results of multiple user requests**
 
 
-![](C:\Users\侯钰坤\Desktop\msProf.assets\Interface execution information-16935625868821.png)
+![](resources/static/Interface execution information.png)
 
 - #### **Root cause Analysis**
-
+msProf supports structure analysis, execution time analysis and traffic anomaly analysis.
 - ##### **Structure analysis**
 
 - ##### execution time analysis
